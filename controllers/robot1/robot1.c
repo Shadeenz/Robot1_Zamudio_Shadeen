@@ -11,7 +11,7 @@
  * <webots/differential_wheels.h>, etc.
  */
 #include <webots/robot.h>
-#include <motor.h>
+#include <webots/motor.h>
 
 /*
  * You may want to add macros here.
@@ -35,6 +35,7 @@ int main(int argc, char **argv)
    *  WbDeviceTag my_actuator = wb_robot_get_device("my_actuator");
    */
    WbDeviceTag wheel_right= wb_robot_get_device("motor_right");
+   WbDeviceTag wheel_left= wb_robot_get_device("motor_left");
 
    wb_motor_set_position(wheel_right, INFINITY);
   /* main loop
@@ -56,6 +57,7 @@ int main(int argc, char **argv)
      * wb_differential_wheels_set_speed(100.0,100.0);
      */
     wb_motor_set_velocity(wheel_right, -5);
+    wb_motor_set_velocity(wheel_left,  -5);
   };
 
   /* Enter your cleanup code here */
