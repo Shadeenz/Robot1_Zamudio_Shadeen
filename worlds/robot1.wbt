@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.3488457477014791 -0.9221730695724781 -0.16704332990535622 0.9931377584513326
-  position -0.5700482253324276 0.46660949406999014 0.5353371829834841
+  orientation -0.29063578376992977 -0.9495752229954739 -0.11763391120563195 0.8548180002760211
+  position -0.4313397037069437 0.1911392472450654 0.40594235034213744
 }
 TexturedBackground {
 }
@@ -12,71 +12,47 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
-  translation 0 0.09999999999999999 0
+  translation 0 0.09 0
   children [
-    DEF DEF_GR_1 Group {
-      children [
-        Transform {
-          children [
-            Solid {
-              translation 0.125 -0.07 0
-              children [
-                Shape {
-                }
-              ]
-              name "solid(2)"
-            }
-          ]
-        }
-        Solid {
-          children [
-            Shape {
-              appearance PBRAppearance {
-                baseColor 0 0 0
-              }
-              geometry Box {
-                size 0.25 0.1 0.1
-              }
-            }
-          ]
-        }
-      ]
+    DEF ROBOR_BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+      }
+      geometry DEF G_BODY Box {
+        size 0.25 0.07 0.1
+      }
     }
-    DEF DEF_HINGE_1 HingeJoint {
+    DEF WHEEL1_JOINT HingeJoint {
       jointParameters HingeJointParameters {
         axis 0 0 1
-        anchor -0.05 0 -0.05
+        anchor -0.05 0 0.06
       }
-      endPoint Solid {
-        translation -0.05000054888785676 -0.00016559170770422927 0.05999913483992267
+      device [
+        RotationalMotor {
+          name "robot_motor_right"
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation -0.05 0 0.06
         rotation 1 0 0 1.57
         children [
-          DEF CYL_1_SHAPE Shape {
+          Shape {
             appearance PBRAppearance {
-              baseColor 0.4588235294117647 0.3137254901960784 0.4823529411764706
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
             }
-            geometry DEF WHEELS1 Cylinder {
+            geometry DEF G_WHEEL Cylinder {
               height 0.02
               radius 0.075
             }
           }
-          HingeJoint {
-            endPoint Solid {
-              translation 0 -0.11999999999999998 0
-              children [
-                USE CYL_1_SHAPE
-              ]
-            }
-          }
         ]
-        name "solid(1)"
-        boundingObject USE CYL_1_SHAPE
-        physics Physics {
-        }
+        boundingObject USE G_WHEEL
       }
     }
   ]
-  boundingObject USE CYL_1_SHAPE
+  boundingObject USE G_BODY
   physics Physics {
   }
 }
