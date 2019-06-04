@@ -49,6 +49,8 @@ Robot {
           }
         ]
         boundingObject USE G_WHEEL
+        physics Physics {
+        }
       }
     }
   ]
