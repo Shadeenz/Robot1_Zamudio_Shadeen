@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.29063578376992977 -0.9495752229954739 -0.11763391120563195 0.8548180002760211
-  position -0.4313397037069437 0.1911392472450654 0.40594235034213744
+  orientation -0.3121274402376908 -0.9422739759469607 -0.12122794770090463 0.8294508121797022
+  position -0.4192948377333777 0.1959309544791331 0.41424459899059696
 }
 TexturedBackground {
 }
@@ -29,7 +29,7 @@ Robot {
       }
       device [
         RotationalMotor {
-          name "robot_motor_right"
+          name "motor_right"
         }
       ]
       endPoint DEF WHEEL1 Solid {
