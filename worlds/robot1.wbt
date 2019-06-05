@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.6321321448968461 -0.7028637693414125 -0.32617705795364366 1.284976867317138
-  position -0.3764090328564821 0.47492399048316697 0.2724191677313937
+  orientation -0.6034083939307864 -0.764721865919107 -0.2260503880091082 0.9372802586475144
+  position -0.9732140278246129 0.7925887871755368 0.9596052790777638
 }
 TexturedBackground {
 }
@@ -12,15 +12,33 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
-  translation 0 0.1 0
+  translation 0 0.07999999999999997 0
   children [
-    DEF ROBOR_BODY Shape {
-      appearance PBRAppearance {
-        baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
-      }
-      geometry DEF G_BODY Box {
-        size 0.25 0.07 0.1
-      }
+    DEF GR_BODY Group {
+      children [
+        DEF ROBOT_BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+          }
+          geometry DEF G_BODY Box {
+            size 0.25 0.07 0.1
+          }
+        }
+        Transform {
+          translation 0.11 -0.05 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                roughness 1
+                metalness 0
+              }
+              geometry Sphere {
+                radius 0.015
+              }
+            }
+          ]
+        }
+      ]
     }
     DEF WHEEL1_JOINT HingeJoint {
       jointParameters HingeJointParameters {
@@ -34,7 +52,7 @@ Robot {
       ]
       endPoint DEF WHEEL1 Solid {
         translation -0.05 0 0.06
-        rotation 1 0 0 1.57
+        rotation 1 0 0 -1.57
         children [
           DEF SH_WHEEL Shape {
             appearance PBRAppearance {
@@ -65,18 +83,28 @@ Robot {
       ]
       endPoint Solid {
         translation -0.05 0 -0.06
-        rotation 1 0 0 1.57
+        rotation -1 0 0 1.57
         children [
-          USE SH_WHEEL
+          DEF WH_SHAPE2 Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.075
+            }
+          }
         ]
         name "solid(1)"
-        boundingObject USE SH_WHEEL
+        boundingObject USE WH_SHAPE2
         physics Physics {
         }
       }
     }
   ]
-  boundingObject USE G_BODY
+  boundingObject USE GR_BODY
   physics Physics {
   }
   controller "robot1"
