@@ -14,6 +14,8 @@
 #include <webots/motor.h>
 #include <webots/keyboard.h>
 #include <webots/distance_sensor.h>
+
+#include <stdio.h>
 /*
  * You may want to add macros here.
  */
@@ -63,14 +65,21 @@ int main(int argc, char **argv)
      * Enter here functions to read sensor data, like:
      *  double val = wb_distance_sensor_get_value(my_sensor);
      */
+     
+    /*Keyboard sensor*/
     pressed_key = wb_keyboard_get_key();
-    ds_value= wb_distance_sensor_get_value(dist_sensor);
+   
+   /*Read distance sensor*/ 
+    ds_value = wb_distance_sensor_get_value(dist_sensor);
+    printf("Distance sensor: %lf\n", ds_value);
     /* Process sensor data here */
 
     /*
      * Enter here functions to send actuator commands, like:
      * wb_differential_wheels_set_speed(100.0,100.0);
      */
+     
+    /*Keyboard conditions*/
 
     if (pressed_key == WB_KEYBOARD_UP){
      wb_motor_set_velocity(wheel_right, -5);

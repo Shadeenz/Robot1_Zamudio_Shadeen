@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.8261991126397568 0.5410677237340203 0.15697370673639618 0.6341667755403027
-  position 3.0179062316445666 4.421160476591195 7.496744516576172
+  orientation -0.9983071591211578 0.05133950740172431 0.027332600081072564 0.32984409873366605
+  position 0.34421795192511273 0.8148594916464518 2.5554724391654684
 }
 TexturedBackground {
 }
@@ -124,4 +124,18 @@ Robot {
   physics Physics {
   }
   controller "robot1"
+}
+Solid {
+  translation 0.6000000000000003 0 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1803921568627451 0.20392156862745098 0.21176470588235294
+      }
+      geometry DEF OBS_1 Box {
+        size 0.1 0.25 0.1
+      }
+    }
+  ]
+  boundingObject USE OBS_1
 }
