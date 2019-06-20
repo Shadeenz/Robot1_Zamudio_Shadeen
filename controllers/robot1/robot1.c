@@ -82,20 +82,29 @@ int main(int argc, char **argv)
     /*Keyboard conditions*/
 
     if (pressed_key == WB_KEYBOARD_UP){
-     wb_motor_set_velocity(wheel_right, -5);
-     wb_motor_set_velocity(wheel_left,  -5);
+     wb_motor_set_velocity(wheel_right, -6.66);
+     wb_motor_set_velocity(wheel_left,  -6.66);
      }
+     
+     if (ds_value <= 20.000000){
+       wb_motor_set_velocity(wheel_left, -6.66);
+       wb_motor_set_velocity(wheel_right, 6.66);
+     }
+     
+     
     if (pressed_key==WB_KEYBOARD_DOWN){
-     wb_motor_set_velocity(wheel_right, 1);
-     wb_motor_set_velocity(wheel_left,  1);
+     wb_motor_set_velocity(wheel_right, 6.66);
+     wb_motor_set_velocity(wheel_left,  6.66);
      }
+     
     if (pressed_key==WB_KEYBOARD_RIGHT){
-     wb_motor_set_velocity(wheel_left, -1);
-     wb_motor_set_velocity(wheel_right, 1);
+     wb_motor_set_velocity(wheel_left, -6.66);
+     wb_motor_set_velocity(wheel_right, 6.66);
      }
+     
     if (pressed_key==WB_KEYBOARD_LEFT){
-     wb_motor_set_velocity(wheel_left,   5);
-     wb_motor_set_velocity(wheel_right, -5);
+     wb_motor_set_velocity(wheel_left,   6.66);
+     wb_motor_set_velocity(wheel_right, -6.66);
      }
 
 

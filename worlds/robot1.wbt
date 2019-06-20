@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.9983071591211578 0.05133950740172431 0.027332600081072564 0.32984409873366605
-  position 0.34421795192511273 0.8148594916464518 2.5554724391654684
+  orientation -0.7816887610559997 0.606453251649978 0.14552365581548815 0.550496171652073
+  position 1.2086716026627693 1.0353640749557682 2.1171721451256964
 }
 TexturedBackground {
 }
@@ -46,9 +46,12 @@ Robot {
         anchor -0.05 0 0.06
       }
       device [
+        PositionSensor {
+          name "encoder1"
+        }
         RotationalMotor {
           name "motor_right"
-          maxTorque 30
+          maxVelocity 6.66
         }
       ]
       endPoint DEF WHEEL1 Solid {
@@ -78,9 +81,12 @@ Robot {
         anchor -0.05 0 -0.06
       }
       device [
+        PositionSensor {
+          name "encoder2"
+        }
         RotationalMotor {
           name "motor_left"
-          maxTorque 30
+          maxVelocity 6.66
         }
       ]
       endPoint Solid {
@@ -118,15 +124,22 @@ Robot {
         }
       ]
       name "distance_sensor"
+      lookupTable [
+        0 0 0
+        0.05 0 0
+        2 1023 0
+      ]
+      resolution 1
     }
   ]
   boundingObject USE GR_BODY
   physics Physics {
+    mass 10
   }
   controller "robot1"
 }
 Solid {
-  translation 0.6000000000000003 0 0
+  translation 0.6000000000000003 0.13999999999999996 0
   children [
     Shape {
       appearance PBRAppearance {
