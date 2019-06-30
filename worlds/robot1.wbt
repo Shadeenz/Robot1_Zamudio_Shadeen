@@ -2,14 +2,59 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.7816887610559997 0.606453251649978 0.14552365581548815 0.550496171652073
-  position 1.2086716026627693 1.0353640749557682 2.1171721451256964
+  orientation -0.9995578900103055 -0.025065638989221484 0.015991818539742995 0.3107570873652819
+  position 0.41913405496329925 1.2943120694896963 2.1917651519456607
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Floor {
+}
+Solid {
+  translation 0.30000000000000016 0.13999999999999996 0.35000000000000014
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1803921568627451 0.20392156862745098 0.21176470588235294
+      }
+      geometry DEF OBS_1 Box {
+        size 0.1 0.25 0.1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE OBS_1
+}
+Solid {
+  translation 0.06000000000000018 0.13999999999999996 -1.0400000000000007
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1803921568627451 0.20392156862745098 0.21176470588235294
+      }
+      geometry DEF OBS_1 Box {
+        size 0.1 0.25 0.1
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE OBS_1
+}
+Solid {
+  translation 0.6000000000000003 0.13999999999999996 -0.37000000000000033
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1803921568627451 0.20392156862745098 0.21176470588235294
+      }
+      geometry DEF OBS_1 Box {
+        size 0.1 0.25 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE OBS_1
 }
 Robot {
   translation 0 0.07999999999999997 0
@@ -127,7 +172,7 @@ Robot {
       lookupTable [
         0 0 0
         0.05 0 0
-        2 1023 0
+        2 1066 0
       ]
       resolution 1
     }
@@ -150,5 +195,20 @@ Solid {
       }
     }
   ]
+  boundingObject USE OBS_1
+}
+Solid {
+  translation 0.41999999999999993 0.13999999999999996 -1.2100000000000009
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1803921568627451 0.20392156862745098 0.21176470588235294
+      }
+      geometry DEF OBS_1 Box {
+        size 0.1 0.25 0.1
+      }
+    }
+  ]
+  name "solid(1)"
   boundingObject USE OBS_1
 }

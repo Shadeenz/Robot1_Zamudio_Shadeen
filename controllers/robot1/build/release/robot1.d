@@ -4,4 +4,5 @@ build/release/robot1.o: robot1.c \
  /usr/local/webots/include/controller/c/webots/nodes.h \
  /usr/local/webots/include/controller/c/webots/motor.h \
  /usr/local/webots/include/controller/c/webots/keyboard.h \
- /usr/local/webots/include/controller/c/webots/distance_sensor.h
+ /usr/local/webots/include/controller/c/webots/distance_sensor.h \
+ /usr/local/webots/include/controller/c/webots/position_sensor.h
