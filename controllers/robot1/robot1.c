@@ -22,7 +22,8 @@
  * You may want to add macros here.
  */
 #define TIME_STEP 64
-#define PI 3.1416
+#define PI 3.14159
+
 
 #define OBSTACLE_DIST 20.0
 
@@ -40,7 +41,7 @@ double straightLineAngle;
 /*Auxiliar functions*/
 int searchForObstacles(WbDeviceTag distance_sensor) {
   double distance_of_sensor = wb_distance_sensor_get_value(distance_sensor);
-
+  printf("Distance%lf\n", distance_of_sensor );
   if (distance_of_sensor > OBSTACLE_DIST)
     return FREEWAY;
   else
@@ -127,7 +128,7 @@ int main(int argc, char **argv)
       wheelsTurnRight(wheels);
       angle = getAngleRobot(encoder);
 
-      if (angle >= 0.8*PI) {
+      if (angle >= 0.275*4*PI) {
         robot_state = GO;
         stopWheels(wheels);
         clearAngleRobot();
@@ -142,4 +143,3 @@ int main(int argc, char **argv)
 
   return 0;
 }
-  
